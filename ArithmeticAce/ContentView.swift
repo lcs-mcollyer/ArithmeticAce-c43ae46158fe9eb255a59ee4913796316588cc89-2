@@ -89,12 +89,14 @@ struct ContentView: View {
             })
                 .padding()
                 .buttonStyle(.bordered)
-            
+                .opacity(answerChecked == false ? 1.0 : 0.0)
             Spacer()
         }
         
         
         
+            
+            
         Button(action: {
             multiplier = Int.random(in: 1...12)
             multiplicand = Int.random(in: 1...12)
@@ -115,6 +117,9 @@ struct ContentView: View {
         }
             .padding()
             .buttonStyle(.bordered)
+            .opacity(answerChecked == true ? 1.0 : 0.0)
+        
+        
             .padding(.horizontal)
             .font(.system(size: 72))
         
