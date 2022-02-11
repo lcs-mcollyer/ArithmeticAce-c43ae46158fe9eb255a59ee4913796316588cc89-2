@@ -27,7 +27,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-                
+        
         VStack(spacing: 0) {
             HStack {
                 Text("✕")
@@ -43,16 +43,26 @@ struct ContentView: View {
             Divider()
             
             HStack {
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(.green)
+                ZStack{
+                    Image(systemName: "checkmark.circle")
+                        .foregroundColor(.green)
                     //        CONDITION      true  false
-                    .opacity(answerCorrect ? 1.0 : 0.0)
+                        .opacity(answerCorrect ? 1.0 : 0.0)
+                    
+                    Image(systemName: "x.square")
+                        .foregroundColor(.red)
+                        .opacity(answerCorrect == false && answerChecked == false ? 0.0 : 1.0)
+                    
+                    
+                }
                 Spacer()
                 TextField("",
                           text: $inputGiven)
                     .multilineTextAlignment(.trailing)
             }
-            
+          
+            ZStack{
+                
             Button(action: {
                 
                 // Answer has been checked!
@@ -64,7 +74,7 @@ struct ContentView: View {
                     answerCorrect = false
                     return
                 }
-
+                
                 // Check the answer!
                 if productGiven == correctProduct {
                     // Celebrate! 👍🏼
@@ -82,9 +92,8 @@ struct ContentView: View {
             
             Spacer()
         }
-        .padding(.horizontal)
-        .font(.system(size: 72))
-
+        
+        
         
         Button(action: {
             multiplier = Int.random(in: 1...12)
@@ -103,9 +112,11 @@ struct ContentView: View {
                 .font(.largeTitle)
             
         })
+        }
             .padding()
             .buttonStyle(.bordered)
-        
+            .padding(.horizontal)
+            .font(.system(size: 72))
         
         
         
