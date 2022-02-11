@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MultiplicationView.swift
 //  ArithmeticAce
 //
 //  Created by Russell Gordon on 2022-02-07.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MultiplicationView: View {
     
     // MARK: Stored properties
     @State var multiplicand = Int.random(in: 1...12)
@@ -129,8 +129,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MultiplicationView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MultiplicationView()
     }
 }
